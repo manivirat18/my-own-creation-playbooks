@@ -1,0 +1,7 @@
+--- # this my installing process
+- hosts: webservers
+  become: yes
+  tasks:
+
+    - name: remove httpd in webservers
+      action: yum name=httpd state=absent 

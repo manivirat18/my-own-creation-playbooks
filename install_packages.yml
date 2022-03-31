@@ -1,0 +1,14 @@
+--- # 
+- name: this is text playbook
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: installing s/w
+      action: yum name=httpd state=installed
+
+    - name: start service
+      action: service name=httpd state=started
+
+
+      

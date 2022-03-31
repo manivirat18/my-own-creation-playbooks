@@ -1,0 +1,17 @@
+--- # this is my sample playbook
+- hosts: webservers
+  become: true
+  user: ansible
+  connection: ssh
+
+  tasks:
+       - name: creating a file with ansible palybook
+         file: path=/tmp/mani.txt state=touch
+
+       - name: craeting a directory with ansible palybook
+         file: path=/tmp/mkmani state=directory
+
+       - name: cpying a file with ansible palybook
+         copy: src=./happybirthday dest=/home/ansible
+
+

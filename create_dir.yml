@@ -1,0 +1,8 @@
+--- # creation of floder by playbook
+- hosts: webservers
+  become: yes 
+  tasks:
+    - name: creating floder in webservers
+      file:
+        path: /home/ansible/baludir
+        state: directory

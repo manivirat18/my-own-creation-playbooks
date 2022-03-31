@@ -1,0 +1,11 @@
+--- # copying file by using playbook
+- hosts: webservers
+  user: ansible
+  become: true
+  connection: ssh
+  tasks:
+    - name: copying a file
+      copy:
+        src: /home/ansible/create_index.html
+        dest: /home/ansible
+        owner: rakesh

@@ -1,0 +1,35 @@
+--- # this my one more conditional playbook
+- hosts: webservers
+  become: true
+
+  tasks:
+    - name: installing httpd package
+      yum:
+        name: httpd
+        state: present
+      when: ansible_os_family == "RedHat"
+
+    - name: start httpd service
+      service:
+        name: httpd
+        state: started
+      when: ansible_os_family == "RedHat"
+
+    - name: installing apache package
+      apt:
+        name: apache2
+        state: present
+      when: ansible_os_family == "Debian"   
+
+    - name: service apache2 service 
+      service:
+        name: apache2
+        state: started
+      when: ansible_os_family == "Debain"
+    - name: copying sailakshmi file
+      copy:
+        src: /home/ansible/sailakshmi
+        dest: /var/www/html
+        owner: madhavarao 
+        mode: 0666
+

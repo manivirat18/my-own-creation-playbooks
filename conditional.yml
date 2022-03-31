@@ -1,0 +1,13 @@
+--- # this my conditional 
+- hosts: webservers
+  become: yes
+
+  tasks:
+    - name: installing apache for  debain
+      command: apt-get install apache-2 -y
+      when: ansible_os_family == "Debian"
+
+    - name: installing apache for redhat
+      command: yum install httpd -y 
+      when: ansible_os_family == "RedHat"
+    

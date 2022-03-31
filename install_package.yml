@@ -1,0 +1,15 @@
+--- # 
+- name: this is test playbook
+  hosts: webservers
+  become: true
+  user: ansible
+  connection: ssh
+  
+  tasks:
+    - name: stop service  
+      action: service name=httpd state=stopped
+
+    - name: remove s/w
+      action: yum name=httpd state=absent
+  
+

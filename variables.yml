@@ -1,0 +1,13 @@
+--- #
+- name : this my variables sections
+  hosts: webservers
+  user: ansible
+  become: true
+  connection: ssh
+  vars:
+    user: madhavarao
+  tasks:
+    - name: creating user in hosts {{user}} 
+      user:
+        name: '{{user}}'
+

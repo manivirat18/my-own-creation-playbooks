@@ -1,0 +1,10 @@
+--- # this my installation
+- hosts: webservers
+  user: ansible
+  become: true
+  connection: ssh
+  tasks:
+    - name: installing package in hosts
+      yum:
+        name: git
+        state: present

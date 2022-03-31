@@ -1,0 +1,13 @@
+--- # this varabile section
+- name: this is test playbook
+  hosts: all
+  user: ansible
+  become: true
+  connection: ssh
+  vars:
+    pkgname: httpd 
+
+  tasks:
+    - name: installing httpd in webservers
+      action: yum name='{{pkgname}}' state=present
+
